@@ -1,0 +1,19 @@
+name: E2E Result Listener
+
+on:
+  repository_dispatch:
+    types: [e2e-result]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Mark as passed
+        if: github.event.client_payload.action == 'e2e-tests-passed'
+        run: echo "✅ E2E tests passed."
+
+      - name: Mark as failed
+        if: github.event.client_payload.action == 'e2e-tests-failed'
+        run: |
+          echo "❌ E2E tests failed."
+          exit 1
