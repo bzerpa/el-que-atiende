@@ -8,6 +8,10 @@ jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
+      - name: Read action from payload
+        run: |
+          echo "Received: ${{ github.event.client_payload.action }}"
+      
       - name: Mark as passed
         if: github.event.client_payload.action == 'e2e-tests-passed'
         run: echo "✅ E2E tests passed."
