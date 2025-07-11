@@ -8,9 +8,5 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-<<<<<<< Updated upstream
-  title = 'Cosa del fobal';
-=======
   title = 'Cosa del fobal213 ';
->>>>>>> Stashed changes
 }
