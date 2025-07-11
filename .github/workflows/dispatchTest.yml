@@ -10,9 +10,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Dispatch event to repo-a
+      - name: Dispatch event to el-que-llama
         uses: peter-evans/repository-dispatch@v3
         with:
           token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
           repository: bzerpa/el-que-llama
           event-type: run-e2e-tests
+          client-payload: |
+            {
+              "commit": "${{ github.event.pull_request.head.sha }}"
+            }
