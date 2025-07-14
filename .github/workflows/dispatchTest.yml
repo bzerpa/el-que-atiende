@@ -18,5 +18,6 @@ jobs:
           event-type: run-e2e-tests
           client-payload: |
             {
-              "commit": "${{ github.event.pull_request.head.sha }}"
+              "commit": "${{ github.event.pull_request.head.sha }}",
+              "pull_number": ${{ github.event.pull_request.number }}
             }
